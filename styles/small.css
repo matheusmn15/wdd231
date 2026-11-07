@@ -1,0 +1,330 @@
+/* ===== small.css — mobile-first base styles (320px and up) ===== */
+
+:root {
+  --primary: #12355b;
+  --primary-dark: #0b2240;
+  --accent: #f0a93b;
+  --accent-soft: #fdf1de;
+  --success: #1d6b52;
+  --bg: #f4f6fa;
+  --surface: #ffffff;
+  --text: #1d2433;
+  --muted: #4a5568;
+  --white: #ffffff;
+  --radius: 10px;
+  --shadow: 0 2px 10px rgba(18, 53, 91, 0.12);
+  --font: "Outfit", "Segoe UI", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1,
+h2 {
+  line-height: 1.2;
+}
+
+/* ----- Header ----- */
+header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+}
+
+.site-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+#menu {
+  margin-left: auto;
+  width: 44px;
+  height: 44px;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--white);
+  background: transparent;
+  border: 2px solid var(--white);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#menu::before {
+  content: "\2630"; /* ☰ */
+}
+
+#menu.open::before {
+  content: "\2715"; /* ✕ */
+}
+
+#menu:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ----- Navigation (hamburger on small screens) ----- */
+.navigation {
+  display: none;
+  flex-direction: column;
+  background-color: var(--primary-dark);
+}
+
+.navigation.open {
+  display: flex;
+}
+
+.navigation a {
+  display: block;
+  padding: 0.85rem 1rem;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  /* transparent border reserved so hover/active never shift layout (no twitching) */
+  border-left: 5px solid transparent;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navigation a:hover,
+.navigation a:focus-visible {
+  background-color: var(--accent);
+  color: var(--primary-dark);
+}
+
+/* Wayfinding — current page */
+.navigation a.active {
+  border-left-color: var(--accent);
+  background-color: var(--primary);
+}
+
+.navigation a.active:hover {
+  background-color: var(--accent);
+}
+
+/* ----- Main ----- */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+main h1 {
+  margin: 0.5rem 0 1rem;
+  color: var(--primary);
+  font-size: 2rem;
+}
+
+.card {
+  background-color: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+}
+
+.card h2 {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  font-size: 1.25rem;
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.course-work ul {
+  margin: 0;
+  padding: 1rem 1rem 1rem 2.25rem;
+}
+
+.course-work li {
+  margin-bottom: 0.4rem;
+}
+
+.course-work li::marker {
+  color: var(--accent);
+}
+
+.location figure {
+  margin: 0;
+  padding: 1rem;
+}
+
+.location img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.location figcaption {
+  margin-top: 0.5rem;
+  text-align: center;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ----- Certificate section ----- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 1rem 0;
+}
+
+.filter-btn {
+  min-width: 80px;
+  padding: 0.55rem 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary);
+  background-color: var(--white);
+  border: 2px solid var(--primary);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.filter-btn:hover,
+.filter-btn:focus-visible {
+  background-color: var(--accent-soft);
+}
+
+.filter-btn[aria-pressed="true"] {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.course-cards {
+  list-style: none;
+  margin: 0;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.75rem;
+}
+
+.course-card {
+  padding: 0.85rem 0.5rem;
+  text-align: center;
+  font-weight: 700;
+  border-radius: 8px;
+  border: 2px solid var(--accent);
+  background-color: var(--accent-soft);
+  color: var(--primary-dark);
+}
+
+.course-card .course-title {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+/* Completed courses: complementary but distinct style */
+.course-card.completed {
+  border-color: var(--success);
+  background-color: var(--success);
+  color: var(--white);
+}
+
+.credits,
+.legend {
+  margin: 0;
+  padding: 0 1rem 1rem;
+  text-align: center;
+}
+
+.legend {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.legend-swatch {
+  display: inline-block;
+  width: 0.9rem;
+  height: 0.9rem;
+  margin: 0 0.25rem 0 0.75rem;
+  vertical-align: middle;
+  border-radius: 3px;
+  border: 2px solid var(--accent);
+  background-color: var(--accent-soft);
+}
+
+.legend-swatch.done {
+  border-color: var(--success);
+  background-color: var(--success);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ----- Footer ----- */
+footer {
+  padding: 1.5rem 1rem;
+  background-color: var(--primary-dark);
+  color: var(--white);
+  text-align: center;
+}
+
+footer p {
+  margin: 0.5rem 0;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.social a {
+  display: block;
+  padding: 0.35rem;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.social a:hover,
+.social a:focus-visible {
+  background-color: var(--primary);
+}
+
+.social img {
+  width: 32px;
+  height: 32px;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matheus Nascimento | WDD 231 Course Home Page</title>
+  <meta name="description"
+    content="Matheus Nascimento's WDD 231 Frontend Web Development I course home page, featuring course work, location, and Web and Computer Programming certificate progress.">
+  <meta name="author" content="Matheus Nascimento">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+
+  <!-- Google Fonts: one family (Outfit) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles: small first, then larger (media query) -->
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+
+  <!-- Scripts: external, deferred -->
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/date.js" defer></script>
+  <script src="scripts/course.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <img src="images/logo.svg" alt="Matheus Nascimento logo" width="48" height="48" class="logo">
+    <span class="site-name">Matheus Nascimento</span>
+    <button id="menu" type="button" aria-label="Open navigation menu" aria-expanded="false"
+      aria-controls="primary-nav"></button>
+  </header>
+
+  <nav id="primary-nav" class="navigation" aria-label="Primary">
+    <a href="index.html" class="active" aria-current="page">Home</a>
+    <a href="chamber/index.html">Chamber</a>
+    <a href="final/index.html">Final</a>
+  </nav>
+
+  <main>
+    <h1>Home</h1>
+
+    <section class="card course-work">
+      <h2>Course Work</h2>
+      <ul>
+        <li>WDD 231 &ndash; Frontend Web Development I</li>
+        <li>Responsive layouts with CSS Grid and Flexbox</li>
+        <li>Accessibility, performance, and SEO best practices</li>
+        <li>Working with JSON data and web APIs</li>
+      </ul>
+    </section>
+
+    <section class="card location">
+      <h2>Brazil</h2>
+      <figure>
+        <img src="images/sao_paulo_temple.jpeg" alt="Illustration of a coastal city with mountains and the sun over the ocean"
+          width="800" height="450" loading="lazy">
+        <figcaption>My home &ndash; Brazil</figcaption>
+      </figure>
+    </section>
+
+    <section class="card certificate">
+      <h2>Web and Computer Programming Certificate</h2>
+      <div class="filters" role="group" aria-label="Filter courses">
+        <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="filter-btn" data-filter="CSE" aria-pressed="false">CSE</button>
+        <button type="button" class="filter-btn" data-filter="WDD" aria-pressed="false">WDD</button>
+      </div>
+      <ul id="course-cards" class="course-cards" aria-live="polite"></ul>
+      <p class="credits">The total credits for the courses listed above is <strong id="credits">0</strong>.</p>
+      <p class="legend"><span class="legend-swatch done" aria-hidden="true"></span> Completed
+        <span class="legend-swatch todo" aria-hidden="true"></span> Not yet completed</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="social">
+      <a href="https://github.com/matheusmn15/wdd231" target="_blank" rel="noopener">
+        <img src="images/github.svg" alt="GitHub repository" width="32" height="32">
+      </a>
+      <a href="https://www.linkedin.com/in/nascimento-matheus/" target="_blank" rel="noopener">
+        <img src="images/linkedin.svg" alt="LinkedIn profile" width="32" height="32">
+      </a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener">
+        <img src="images/instagram.svg" alt="Instagram" width="32" height="32">
+      </a>
+      <a href="https://www.youtube.com/" target="_blank" rel="noopener">
+        <img src="images/youtube.svg" alt="YouTube" width="32" height="32">
+      </a>
+    </div>
+    <p>&copy;<span id="currentyear"></span> &#10022; Matheus Nascimento &#10022; Brazil</p>
+    <p id="lastModified"></p>
+  </footer>
+</body>
+
+</html>

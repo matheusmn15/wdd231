@@ -1,0 +1,80 @@
+/* ===== larger.css — tablet / desktop overrides ===== */
+
+@media (min-width: 640px) {
+
+  /* Hide hamburger, show horizontal flex navigation */
+  #menu {
+    display: none;
+  }
+
+  .navigation,
+  .navigation.open {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .navigation a {
+    flex: 1 1 0;
+    max-width: 200px;
+    text-align: center;
+    border-left: none;
+    /* reserved transparent bottom border => no layout shift on hover */
+    border-bottom: 4px solid transparent;
+  }
+
+  .navigation a.active {
+    border-bottom-color: var(--accent);
+  }
+
+  header {
+    padding: 1rem 2rem;
+  }
+
+  .site-name {
+    font-size: 1.75rem;
+  }
+
+  /* Two-column layout: Course Work | Location, Certificate spans full width */
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    padding: 1.5rem 2rem;
+  }
+
+  main h1,
+  .certificate {
+    grid-column: 1 / -1;
+  }
+
+  .card {
+    margin-bottom: 0;
+  }
+
+  /* Footer items laid out in a row */
+  footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 2rem;
+  }
+
+  .social {
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1000px) {
+
+  /* Course work narrower, location wider on large screens */
+  main {
+    grid-template-columns: 2fr 3fr;
+  }
+
+  .course-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

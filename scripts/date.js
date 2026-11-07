@@ -1,0 +1,5 @@
+// Footer dates: current year and last modified
+const today = new Date();
+
+document.getElementById("currentyear").textContent = today.getFullYear();
+document.getElementById("lastModified").textContent = `Last Modification: ${document.lastModified}`;
